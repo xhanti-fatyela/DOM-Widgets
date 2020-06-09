@@ -45,6 +45,7 @@ function getCriticalLevel (criticalLevel) {
 
     return theCriticalLevel;
 }
+
 function makeCall () {
  if (!hasReachedCriticalLevel()) {
     callCostTotal += theCallCost
