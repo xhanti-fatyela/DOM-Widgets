@@ -10,6 +10,9 @@ const billTotalSpanElement = document.querySelector(".total")
 //  * loop over all the entries in the the resulting list
 //  * check if it is a call or an sms and add the right amount to the overall total
 //  * once done looping over all the entries - display the total onto the screen in the billTotal element
+
+var calculateBillInstance = calculteBill()
+
 function totalPhoneBill(billString){
   
     var billItems = billString.split(",");
@@ -34,11 +37,11 @@ function totalPhoneBill(billString){
   function styleTotalColor(roundedBillTotal){
     const currentTotal = Number(roundedBillTotal);
     
-     billTotalSpanElement.classList.remove("danger")
+     billTotalSpanElement.classList.remove("critical")
       billTotalSpanElement.classList.remove("warning")
     
         if (currentTotal >= 30){
-           billTotalSpanElement.classList.add("danger")
+           billTotalSpanElement.classList.add("critical")
           
         }
         

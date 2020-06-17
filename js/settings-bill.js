@@ -13,21 +13,16 @@ const theSpanElementThree = document.querySelector(".totalColor")
 const theAddButton = document.querySelector(".theAddButton")
 //get a reference to the 'Update settings' button
 const updateSettingsButton = document.querySelector(".updateSettings")
+
+var settingsBillInstance = BillWithSettings()
 // create a variables that will keep track of all the settings
-var totalCallThree = 0;
-var totalSmsThree = 0;
-var totalThree = 0;
-var callCostThree = 0;
-var smsCostThree = 0;
-var warningLevel = 0;
-var criticalLevel = 0;
+
 
 
 // create a variables that will keep track of all three totals.
 
 //add an event listener for when the add button is pressed
 function settingsAddButton (){
-    if (totalThree < criticalLevel) {
 
     
     const theCallOrSmsRadioThree = document.querySelector(".billItemTypeWithSettings:checked");
@@ -35,31 +30,34 @@ function settingsAddButton (){
 
     if (radioValuesThree === "call") {
 
-        totalCallThree += callCostThree
-        totalThree += callCostThree
+
+        settingsBillInstance.makeCall()
 
     
     }
 
     else if (radioValuesThree === "sms") {
 
-            totalSmsThree += smsCostThree
-            totalThree += smsCostThree
+    
+        settingsBillInstance.sendSms()
 
     }
 
-    var roundedCallTotalThree = totalCallThree.toFixed(2);
     
-    var roundedSmsTotalThree = totalSmsThree.toFixed(2);
-    var roundedTotalThree = totalThree.toFixed(2);
+    //var roundedCallTotalThree = totalCallThree.toFixed(2);
+    
+    //var roundedSmsTotalThree = totalSmsThree.toFixed(2);
+    //var roundedTotalThree = totalThree.toFixed(2);
 
     colorChange ()
 
-    callTotalSettings.innerHTML = roundedCallTotalThree;
-    smsTotalSettings.innerHTML = roundedSmsTotalThree;
-    totalSettings.innerHTML = roundedTotalThree;
-    }
- 
+
+    
+    callTotalSettings.innerHTML = settingsBillInstance.getTotalCallCost().toFixed(2);
+    
+    smsTotalSettings.innerHTML = settingsBillInstance.getTotalSmsCost().toFixed(2);
+    
+    totalSettings.innerHTML = settingsBillInstance.getTotalCost().toFixed(2);
      
 
     
@@ -70,28 +68,18 @@ function settingsAddButton (){
 function colorChange () {
 
     
-        theSpanElementThree.classList.remove("danger");
-        theSpanElementThree.classList.remove("warning");
-    
-          if (totalThree >= criticalLevel) {
-              
-            theSpanElementThree.classList.add("danger")
-    
-           }
-    
-           else if (totalThree >= warningLevel) {
-    
-            theSpanElementThree.classList.add("warning") 
-    
-           }
+    theSpanElementThree.classList.remove("critical");
+    theSpanElementThree.classList.remove("warning");
+    theSpanElementThree.classList.add(settingsBillInstance.totalClassName());
     };
 
 function settingsUpdate () {
 
-    callCostThree = Number(callCostSetting.value)
-    smsCostThree = Number(smsCostSetting.value)
-    warningLevel = Number(warningLevelSetting.value)
-    criticalLevel = Number(criticalLevelSetting.value)
+    settingsBillInstance.setCallCost(Number(callCostSetting.value))
+    settingsBillInstance.setSmsCost(Number(smsCostSetting.value))
+    settingsBillInstance.setWarningLevel(Number(warningLevelSetting.value))
+    settingsBillInstance.setCriticalLevel(Number(criticalLevelSetting.value))
+
     
     colorChange( )
 

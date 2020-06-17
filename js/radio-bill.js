@@ -7,9 +7,11 @@ const smsTotalTwo = document.querySelector(".smsTotalTwo");
 const totalTwo = document.querySelector(".totalTwo")
 const theSpanElement = document.querySelector(".orange")
 //create a variable that will keep track of the total bill
-var totalCallTwo = 0;
-var totalSmsTwo = 0;
-var mainTotalTwo = 0;
+//var totalCallTwo = 0;
+//var totalSmsTwo = 0;
+//var mainTotalTwo = 0;
+
+var raidoBillInstance = billWithRadio();
 
 //add an event listener for when the add button is pressed
 radioBillAddBtn.addEventListener("click", function() {
@@ -19,41 +21,38 @@ radioBillAddBtn.addEventListener("click", function() {
 
        if (radioValues === 'call') {
 
-         totalCallTwo += 2.75   
-         mainTotalTwo += 2.75
+              raidoBillInstance.makeCallTwo()
+         
        }
    
        else if (radioValues === 'sms') {
 
-          totalSmsTwo += 0.65
-          mainTotalTwo += 0.65
+              raidoBillInstance.sendSmsTwo()
 
        }
 
-       var roundedCallTotalTwo = totalCallTwo.toFixed(2);
-       var roundedSmsTotalTwo = totalSmsTwo.toFixed(2);
-       var roundedTotalTwo = mainTotalTwo.toFixed(2);
+       //var roundedCallTotalTwo = totalCallTwo.toFixed(2);
+       //var roundedSmsTotalTwo = totalSmsTwo.toFixed(2);
+       //var roundedTotalTwo = mainTotalTwo.toFixed(2);
 
-       callTotalTwo.innerHTML = roundedCallTotalTwo;
-       smsTotalTwo.innerHTML = roundedSmsTotalTwo;
-       totalTwo.innerHTML = roundedTotalTwo;
+       callTotalTwo.innerHTML = raidoBillInstance.callMade();
+       smsTotalTwo.innerHTML = raidoBillInstance.smsSent();;
+       totalTwo.innerHTML = raidoBillInstance.overallTotalSum();;
        
-       const myCurrentTotal = Number(roundedTotalTwo);
+       //raidoBillInstance.overallTotalSum(Number(roundedTotalTwo));
+       
 
-       theSpanElement.classList.remove("danger")
+       theSpanElement.classList.remove("critical")
        theSpanElement.classList.remove("warning")
 
-       if (myCurrentTotal >= 50) {
+       
           
-        theSpanElement.classList.add("danger")
+        theSpanElement.classList.add(raidoBillInstance.showClassName())
 
-       }
 
-       else if (myCurrentTotal >= 30 && myCurrentTotal < 50) {
+              theSpanElement.classList.add(raidoBillInstance.showClassNameTwo()) 
 
-              theSpanElement.classList.add("warning") 
-
-       }
+       
 
 
 });
