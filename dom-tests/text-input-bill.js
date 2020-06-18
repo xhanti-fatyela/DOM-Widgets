@@ -1,4 +1,4 @@
-function textInputBill(){
+function textInputBill() {
 
     var callCostFour = 2.75;
     var smsCostFour = 0.65;
@@ -10,109 +10,109 @@ function textInputBill(){
     var textSmsTotal = 0;
     var textOverallTotal = 0;
     var finalWarningLevel = 0;
-    var finalCriticalLevel = 0; 
+    var finalCriticalLevel = 0;
 
-function makeCallFour () {
+    function makeCallFour() {
 
-    textCallTotal += callCostFour
-    textOverallTotal += callCostFour
+        textCallTotal += callCostFour
+        textOverallTotal += callCostFour
 
-}
+    }
 
-function callMadeFour () {
+    function callMadeFour() {
 
-     return textCallTotal.toFixed(2)
+        return textCallTotal.toFixed(2)
 
-}
+    }
 
-function sendSmsFour () {
+    function sendSmsFour() {
 
-    textSmsTotal += smsCostFour
-    textOverallTotal += smsCostFour
-}
+        textSmsTotal += smsCostFour
+        textOverallTotal += smsCostFour
+    }
 
-function smsSentFour () {
+    function smsSentFour() {
 
-    return textSmsTotal.toFixed(2)
-}
+        return textSmsTotal.toFixed(2)
+    }
 
-function textOverallTotalSum () {
+    function textOverallTotalSum() {
 
-    return textOverallTotal.toFixed(2)
-}
+        return textOverallTotal.toFixed(2)
+    }
 
-function setWarningLevelFour () {
-   
-    finalWarningLevel = warningLevelAmountFour
+    function setWarningLevelFour() {
 
-}
+        finalWarningLevel = warningLevelAmountFour
 
-function getWarningLevelFour () {
+    }
 
-    return finalWarningLevel.toFixed(2)
+    function getWarningLevelFour() {
 
-}
+        return finalWarningLevel.toFixed(2)
 
-function setCriticalLevelFour () {
+    }
 
-    finalCriticalLevel = criticalLevelAmountFour;
-}
+    function setCriticalLevelFour() {
 
-function getCriticalLevelFour () {
+        finalCriticalLevel = criticalLevelAmountFour;
+    }
 
-   return finalCriticalLevel.toFixed(2)
-}
+    function getCriticalLevelFour() {
 
-function reachedDangerLevelFour () {
+        return finalCriticalLevel.toFixed(2)
+    }
 
-    return textOverallTotalSum() >= getCriticalLevelFour()
+    function reachedDangerLevelFour() {
 
-}
+        return textOverallTotalSum() >= getCriticalLevelFour()
 
-function reachedWarningLevelFour () {
+    }
 
-    return textOverallTotalSum() >= getWarningLevelFour()
+    function reachedWarningLevelFour() {
 
-}
+        return textOverallTotalSum() >= getWarningLevelFour()
 
-function textShowClassName () {
+    }
 
-    if (reachedWarningLevelFour()) {
-       
-        return "warning"
+    function textShowClassName() {
 
-     }
+        if (reachedWarningLevelFour()) {
+
+            return "warning"
+
+        }
 
 
-}
+    }
 
-function textShowClassNameTwo () {
+    function textShowClassNameTwo() {
 
-    if (reachedDangerLevelFour()) {
-       
-        return "danger"
+        if (reachedDangerLevelFour()) {
 
-     }
+            return "danger"
 
-}
+        }
 
-return {
-    
-    makeCallFour,
-    callMadeFour,
-    sendSmsFour,
-    smsSentFour,
-    textOverallTotalSum,
-    setWarningLevelFour,
-    getWarningLevelFour,
-    setCriticalLevelFour,
-    getCriticalLevelFour,
-    reachedWarningLevelFour,
-    reachedDangerLevelFour,
-    textShowClassName,
-    textShowClassNameTwo
-    
+    }
 
-}
+    return {
+
+        makeCallFour,
+        callMadeFour,
+        sendSmsFour,
+        smsSentFour,
+        textOverallTotalSum,
+        setWarningLevelFour,
+        getWarningLevelFour,
+        setCriticalLevelFour,
+        getCriticalLevelFour,
+        reachedWarningLevelFour,
+        reachedDangerLevelFour,
+        textShowClassName,
+        textShowClassNameTwo
+
+
+    }
 
 }

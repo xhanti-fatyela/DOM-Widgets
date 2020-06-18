@@ -1,4 +1,4 @@
-function billWithRadio(){
+function billWithRadio() {
 
     var callCostTwo = 2.75;
     var smsCostTwo = 0.65;
@@ -10,109 +10,109 @@ function billWithRadio(){
     var smsTotal = 0;
     var overallTotal = 0;
     var myWarningLevel = 0;
-    var myCriticalLevel = 0; 
+    var myCriticalLevel = 0;
 
-function makeCallTwo () {
+    function makeCallTwo() {
 
-    callTotal += callCostTwo
-    overallTotal += callCostTwo
+        callTotal += callCostTwo
+        overallTotal += callCostTwo
 
-}
+    }
 
-function callMade () {
+    function callMade() {
 
-     return callTotal.toFixed(2)
+        return callTotal.toFixed(2)
 
-}
+    }
 
-function sendSmsTwo () {
+    function sendSmsTwo() {
 
-    smsTotal += smsCostTwo
-    overallTotal += smsCostTwo
-}
+        smsTotal += smsCostTwo
+        overallTotal += smsCostTwo
+    }
 
-function smsSent () {
+    function smsSent() {
 
-    return smsTotal.toFixed(2)
-}
+        return smsTotal.toFixed(2)
+    }
 
-function overallTotalSum () {
+    function overallTotalSum() {
 
-    return overallTotal.toFixed(2)
-}
+        return overallTotal.toFixed(2)
+    }
 
-function setWarningLevelTwo () {
-   
-    myWarningLevel = warningLevelAmount
+    function setWarningLevelTwo() {
 
-}
+        myWarningLevel = warningLevelAmount
 
-function getWarningLevelTwo () {
+    }
 
-    return myWarningLevel.toFixed(2)
+    function getWarningLevelTwo() {
 
-}
+        return myWarningLevel.toFixed(2)
 
-function setCriticalLevelTwo () {
+    }
 
-    myCriticalLevel = criticalLevelAmount;
-}
+    function setCriticalLevelTwo() {
 
-function getCriticalLevelTwo () {
+        myCriticalLevel = criticalLevelAmount;
+    }
 
-   return myCriticalLevel.toFixed(2)
-}
+    function getCriticalLevelTwo() {
 
-function reachedCriticalLevel () {
+        return myCriticalLevel.toFixed(2)
+    }
 
-    return overallTotalSum() >= getCriticalLevelTwo()
+    function reachedCriticalLevel() {
 
-}
+        return overallTotalSum() >= getCriticalLevelTwo()
 
-function reachedWarningLevel () {
+    }
 
-    return overallTotalSum() >= getWarningLevelTwo()
+    function reachedWarningLevel() {
 
-}
+        return overallTotalSum() >= getWarningLevelTwo()
 
-function showClassName () {
+    }
 
-    if (reachedWarningLevel()) {
-       
-        return "warning"
+    function showClassName() {
 
-     }
+        if (reachedWarningLevel()) {
+
+            return "warning"
+
+        }
 
 
-}
+    }
 
-function showClassNameTwo () {
+    function showClassNameTwo() {
 
-    if (reachedCriticalLevel()) {
-       
-        return "critical"
+        if (reachedCriticalLevel()) {
 
-     }
+            return "critical"
 
-}
+        }
 
-return {
-    
-    makeCallTwo,
-    callMade,
-    sendSmsTwo,
-    smsSent,
-    overallTotalSum,
-    setWarningLevelTwo,
-    getWarningLevelTwo,
-    setCriticalLevelTwo,
-    getCriticalLevelTwo,
-    reachedWarningLevel,
-    reachedCriticalLevel,
-    showClassName,
-    showClassNameTwo
-    
+    }
 
-}
+    return {
+
+        makeCallTwo,
+        callMade,
+        sendSmsTwo,
+        smsSent,
+        overallTotalSum,
+        setWarningLevelTwo,
+        getWarningLevelTwo,
+        setCriticalLevelTwo,
+        getCriticalLevelTwo,
+        reachedWarningLevel,
+        reachedCriticalLevel,
+        showClassName,
+        showClassNameTwo
+
+
+    }
 
 }
